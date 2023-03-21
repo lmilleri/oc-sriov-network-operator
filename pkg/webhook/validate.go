@@ -162,9 +162,9 @@ func staticValidateSriovNetworkNodePolicy(cr *sriovnetworkv1.SriovNetworkNodePol
 		return false, fmt.Errorf("'deviceType: %s' conflicts with 'vdpaType: virtio'; Set 'deviceType' to (string)'netdevice' Or Remove 'vdpaType'", cr.Spec.DeviceType)
 	}
 	// vdpa: device must be configured in switchdev mode
-	if cr.Spec.VdpaType == constants.VdpaTypeVirtio && cr.Spec.EswitchMode != sriovnetworkv1.ESwithModeSwitchDev {
-		return false, fmt.Errorf("virtio/vdpa requires the device to be configured in switchdev mode")
-	}
+	// if cr.Spec.VdpaType == constants.VdpaTypeVirtio && cr.Spec.EswitchMode != sriovnetworkv1.ESwithModeSwitchDev {
+		// return false, fmt.Errorf("virtio/vdpa requires the device to be configured in switchdev mode")
+	// }
 	return true, nil
 }
 
